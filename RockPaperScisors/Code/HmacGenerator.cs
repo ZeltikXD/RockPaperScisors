@@ -5,17 +5,25 @@ namespace RockPaperScisors.Code
 {
     public static class HmacGenerator
     {
-        public static string GenerateKey(int size = 32)
+        public static byte[] GenerateKey(int size = 32)
         {
-            var bytes = RandomNumberGenerator.GetBytes(size);
+            return RandomNumberGenerator.GetBytes(size);     
+        }
+
+        public static byte[] GetBytes(string str)
+        {
+            return Encoding.UTF8.GetBytes(str);
+        }
+
+        public static string ToString(byte[] bytes)
+        {
             return BitConverter.ToString(bytes).Replace("-", "").ToUpper();
         }
 
-        public static string GenerateHmac(string key, string data)
+        public static string GenerateHmac(byte[] key, string data)
         {
-            var keyBytes = Encoding.UTF8.GetBytes(key);
-            using var hmac = new HMACSHA256(keyBytes);
-            var dataBytes = Encoding.UTF8.GetBytes(data);
+            using var hmac = new HMACSHA256(key);
+            var dataBytes = GetBytes(data);
             var hashBytes = hmac.ComputeHash(dataBytes);
             
             var strBuilder = new StringBuilder();

@@ -5,7 +5,8 @@
         readonly string[] _moves;
         readonly GameRuler _ruler;
         readonly GameTable _table;
-        string _key = string.Empty;
+        byte[] _key = [];
+        string _keyStr = string.Empty;
         string _hmac = string.Empty;
 
         public GameHandler(string[] args)
@@ -71,7 +72,7 @@
             Console.WriteLine("Your move: {0}", userMove);
             Console.WriteLine("Machine move: {0}", machineMove);
             Console.WriteLine("You {0}!", result);
-            Console.WriteLine("HMAC Key: {0}", _key);
+            Console.WriteLine("HMAC Key: {0}", _keyStr);
         }
 
         public void PrintHelp()
@@ -105,13 +106,14 @@
         private string GenerateMove()
         {
             _key = HmacGenerator.GenerateKey();
-            var move = _moves.ElementAtOrDefault(GetRandomMove());
-            _hmac = HmacGenerator.GenerateHmac(_key, move ?? string.Empty);
-            return move ?? string.Empty;
+            var move = _moves[GetRandomMove()];
+            _hmac = HmacGenerator.GenerateHmac(_key, move);
+            _keyStr = HmacGenerator.ToString(_key);
+            return move;
         }
 
         private int GetRandomMove()
-            => Random.Shared.Next(_moves.Length);
+            => CryptRandom.Next(_key, maxExclusiveValue: _moves.Length);
 
         bool AreValidArgs(out string? message)
         {
