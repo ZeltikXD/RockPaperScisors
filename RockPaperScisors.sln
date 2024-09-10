@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScisors", "RockPaperScisors\RockPaperScisors.csproj", "{C7A4ED21-4B2B-42B7-9A4E-C244AB540E23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{765539B3-30BB-433E-A6B6-3FDFD6033410}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7A4ED21-4B2B-42B7-9A4E-C244AB540E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A4ED21-4B2B-42B7-9A4E-C244AB540E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A4ED21-4B2B-42B7-9A4E-C244AB540E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A4ED21-4B2B-42B7-9A4E-C244AB540E23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {557A7692-CB43-45EB-B157-5C5C1C6E4C3C}
+	EndGlobalSection
+EndGlobal
